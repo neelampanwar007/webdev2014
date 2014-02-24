@@ -1,5 +1,5 @@
 <?php
-	include_once 'passwprd.php';
+	include_once_DIR_ 'password.php';
 	
     function GetConnection()
 	{
