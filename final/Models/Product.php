@@ -2,7 +2,7 @@
 	include_once __DIR__ .'/../inc/functions.php';
 	
 	
-	class Users 
+	class Product
 	{
 		
 		static public function Get($id = null)
@@ -11,8 +11,8 @@
 			if($id == null)
 			{
 				//Get all record
-				
-				return fetch_all("SELECT * FROM 2014Spring_Keywords");
+				print_r('model');
+				return fetch_all("SELECT * FROM 2014Spring_Product");
 			}
 			else 
 			{
