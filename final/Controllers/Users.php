@@ -6,11 +6,42 @@
 	
 	@$view = $action = $_REQUEST['action'];  // @ will ignore error if occur in following expression ie on no action , cheks is der ny request, also let 
 	@$format = $_REQUEST['format'];
+	
+	
 	switch ($action) {
-		case 'create':
+		case 'new':
+			   $view = 'edit';
+			   break;
+		case 'edit':
+			 //losd a record to edit
+			 $model = Users::Get($_REQUEST['id']);
 				break;
-		case 'update':
-				break;
+		case 'save':
+			// validate
+			   $errors = Users::Valdate($_REQUEST['id']);
+			   if(!$errors)
+			   {
+			   	
+				$errors = Users::Save($_REQUEST);
+			   }
+			   
+				if(!$errors)
+				{
+					//echo "success";
+					//show recently addes record
+					header("Location:  ?");// post redirect get (prg)
+					die();// stop processing php for this page
+					
+				}
+				else 
+				{
+					print_r($errors);	
+					$model= $_REQUEST;
+					$view = 'edit';
+					
+				}
+			    
+			    break;
 		case 'delete':
 				break;
 		
@@ -18,8 +49,6 @@
 			
 			$model = Users::Get();  // static dereferening operator :: is used to access a static get method,get list of all users
 			
-			if($action == null) $action = 'index';
-			include __DIR__ . "/../Views/Users/$action.php";
  			if($view == null) $view = 'index';
 	}
 	
