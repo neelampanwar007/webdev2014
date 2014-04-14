@@ -1,95 +1,79 @@
 <?php
-	include_once __DIR__ .'/../inc/functions.php';
-	
-	
-	class Users 
-	{
-		
+	include_once __DIR__ . '/../inc/functions.php';
+
+	class Users  {
+
 		static public function Get($id = null)
-	
 		{
 			$sql = "SELECT U.*, K.Name as UserType_Name
-				        FROM 2014Spring_Users U Join 2014Spring_Keywords K ON U.UserType = K.id
-				         ";
-			if($id == null)
-			{
-				//Get all record
-				
+					FROM 2013Fall_Users U Join 2013Fall_Keywords K ON U.UserType = K.id
+				   ";
+			if($id == null){
+				//	Get all records
 				return fetch_all($sql);
+			}else{
+				// Get one record
+
+				$sql .= " WHERE U.id = $id ";
+				if(($results = fetch_all($sql)) && count($results) > 0){
+					return $results[0];
+				}else{
+					return null;
+				}
 			}
-			else 
-			{
-					//Get one record
-					$sql .= "WHERE U.id =$id ";//concatination at end of sql
-					if(($results = fetch_all($sql) )&& count($results)>0)
-						{
-						   return $results[0];
-					    }
-					else{
-							return null;
-						}
-			}
-		
-			
 		}
-		
-		static public function Save($row)
+
+		static public function Save(&$row)
 		{
 			$conn = GetConnection();
-			
-			  if (!empty($row['id']))
-			   {
-			 	   $sql = "  Update 2104Spring_Users
-			 	                  Set FirstName='$row[FirstName]', LastName='$row[LastName]',
-			 	                      Password='$row[Password]', fbid='$row[fbid]', UserType='$row[UserType]'
-			 	               WHERE id= $row[id]
-			 	               ";
-			   }
-			   else 
-			   {
-				   $sql = " INSERT INTO 2014Spring_Users 
-				        (FirstName, LastName, Password, fbid, UserType)
-				        VALUES ('$row[FirstName]', '$row[LastName]', '$row[Password]','$row[fbid]', '$row[UserType]')
-				         ";
-			   }
-			   
-			   //echo $sql;
-			   $results = $conn->query($sql);  // result is pointer to data base
-			   $error = $conn->error; // if any error occur in connection get stored in error vairable
-				//$arr = array();
-			   
-			   
-			   
-			   $conn->close();
-			   //return $arr; 
-			   return $error ? array('sql error'=> $error): false; //false-no error, error occur pass back to rray havin all errors
+
+			$row2 = escape_all($row, $conn);
+			if (!empty($row['id'])) {
+				$sql = "Update 2013Fall_Users
+							Set FirstName='$row2[FirstName]', LastName='$row2[LastName]',
+								Password='$row2[Password]', fbid='$row2[fbid]', UserType='$row2[UserType]'
+						WHERE id = $row2[id]
+						";
+			}else{
+				$sql = "INSERT INTO 2013Fall_Users
+						(FirstName, LastName, Password, fbid, UserType)
+						VALUES ('$row2[FirstName]', '$row2[LastName]', '$row2[Password]', '$row2[fbid]', '$row2[UserType]' ) ";				
+			}
+
+
+			//echo $sql;
+			$results = $conn->query($sql);
+			$error = $conn->error;
+
+			if(!$error && empty($row['id'])){
+				$row['id'] = $conn->insert_id;
+			}
+
+			$conn->close();
+
+			return $error ? array ('sql error' => $error) : false;
 		}
-		
-		
-		
+
 		static public function Blank()
 		{
-			
-			return array('id'=> null);
+			return array( 'id' => null);
 		}
-			
-			
-		static public function Update($row)
-		{
-			
-			
-			
-		}
-		
+
 		static public function Delete($id)
 		{
-			
-			
+			$conn = GetConnection();
+			$sql = "DELETE FROM 2013Fall_Users WHERE id = $id";
+			//echo $sql;
+			$results = $conn->query($sql);
+			$error = $conn->error;
+			$conn->close();
+
+			return $error ? array ('sql error' => $error) : false;
 		}
-		
+
 		static public function Validate($row)
 		{
-				$errors = array();
+			$errors = array();
 			if(empty($row['FirstName'])) $errors['FirstName'] = "is required";
 			if(empty($row['LastName'])) $errors['LastName'] = "is required";
 
@@ -98,11 +82,12 @@
 
 			return count($errors) > 0 ? $errors : false ;
 		}
-			
-		
+
 	}
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
