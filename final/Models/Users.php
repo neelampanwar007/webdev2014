@@ -1,12 +1,13 @@
 <?php
 	include_once __DIR__ . '/../inc/functions.php';
+	$error=null;
 
 	class Users  {
 
 		static public function Get($id = null)
 		{
 			$sql = "SELECT U.*, K.Name as UserType_Name
-					FROM 2013Fall_Users U Join 2013Fall_Keywords K ON U.UserType = K.id
+					FROM 2014Spring_Users U Join 2014Spring_Keywords K ON U.UserType = K.id
 				   ";
 			if($id == null){
 				//	Get all records
@@ -29,13 +30,14 @@
 
 			$row2 = escape_all($row, $conn);
 			if (!empty($row['id'])) {
-				$sql = "Update 2013Fall_Users
+				$sql = "Update 2014Spring_Users
 							Set FirstName='$row2[FirstName]', LastName='$row2[LastName]',
 								Password='$row2[Password]', fbid='$row2[fbid]', UserType='$row2[UserType]'
 						WHERE id = $row2[id]
 						";
-			}else{
-				$sql = "INSERT INTO 2013Fall_Users
+			}
+			else{
+				$sql = "INSERT INTO 2014Spring_Users
 						(FirstName, LastName, Password, fbid, UserType)
 						VALUES ('$row2[FirstName]', '$row2[LastName]', '$row2[Password]', '$row2[fbid]', '$row2[UserType]' ) ";				
 			}
@@ -62,7 +64,7 @@
 		static public function Delete($id)
 		{
 			$conn = GetConnection();
-			$sql = "DELETE FROM 2013Fall_Users WHERE id = $id";
+			$sql = "DELETE FROM 2014Spring_Users WHERE id = $id";
 			//echo $sql;
 			$results = $conn->query($sql);
 			$error = $conn->error;
@@ -84,10 +86,6 @@
 		}
 
 	}
-
-
-
-
 
 
 

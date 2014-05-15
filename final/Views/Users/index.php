@@ -29,7 +29,7 @@
 				<th>Password</th>
 				<th>fbid</th>
 				<th>UserType</th>
-				<th>actions</th>
+				<th>Actions</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -45,7 +45,7 @@
 						<div class="btn-group">
 							<a class="btn btn-sm btn-default glyphicon glyphicon-edit" title="Edit" href="?action=edit&id=<?=$row['id']?>"></a>
 							<a class="btn btn-sm btn-default glyphicon glyphicon-eye-open" title="Details" href="?action=edit&id=<?=$row['id']?>"></a>
-							<a class="btn btn-sm btn-default glyphicon glyphicon-trash" title="Delete" href="?action=delete&format=json&id=<?=$row['id']?>"></a>
+							<a <?=Accounts::IsAdmin() ? '' : 'disabled' ?> class="btn btn-sm btn-default glyphicon glyphicon-trash" title="Delete" href="?action=delete&format=json&id=<?=$row['id']?>"></a>
 						</div>
 					</td>
 				</tr>
@@ -122,6 +122,11 @@
 		</script>
 	<? } ?>
 	
+
+
+
+
+
 
 
 

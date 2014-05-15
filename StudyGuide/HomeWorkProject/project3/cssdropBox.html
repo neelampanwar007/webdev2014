@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html>
+
+<head><title>css dropbox menu</title></head>
+
+<style>
+h1
+{
+	text-align:center;
+	font-size:36pt;
+	color:violet;
+}
+nav
+{
+	margin:100px auto;
+	text-align:center;
+	
+}
+
+
+nav ul ul
+{
+display:none;
+}
+
+nav ul li:hover>ul
+{
+display:block;
+}
+
+nav ul
+{
+	display:inline-table;
+	position:relative;
+	background:linear-gradient(to right,red , yellow);
+	box-shadow:10px 10px 10px;
+	padding: 0px 20px;
+	box-radius:10px;
+	list-style:none;
+	
+}
+
+nav ul:after
+{
+	content: ""; clear: both;
+	display:block;
+}
+	
+nav ul li
+{
+float:left;
+}
+
+nav ul li:hover
+{
+	background:#4b545f;
+}
+
+nav ul li:hover a
+{
+	color:red;
+}
+
+
+nav ul li a
+{
+	display:block;
+	padding: 20px 40px;
+	text-decoration:none;
+	text-transform:uppercase;
+	color:purple;
+}
+nav ul ul
+{
+
+	position:absolute;
+	border-radius:10px;
+	padding:0px;
+	top: 100%;
+}
+	nav ul ul li
+	{
+		float:none;
+		border-top: 1px solid white;
+		border-bottom: 1px solid;
+		position:relative;
+	}
+		
+		nav ul ul li a
+			{
+				padding: 20px 20px;
+				color: red;
+			}
+			nav ul ul li a:hover
+			{
+				background:green;
+			}
+	nav ul ul ul
+	{
+		position: absolute;
+		left: 100%;
+		top:0;
+	}
+
+
+
+
+
+
+</style>
+
+<body>
+	<nav>
+		<ul>
+			<li><a href="#">HOME</a></li>
+			<li><a href="#">ELectronics</a>
+				<ul>
+					<li><a href="#">Laptop</a></li>
+					<li><a href="#">Mobile</a></li>
+					<li><a href="#">Accessories</a></li>
+					<li><a href="#">Television</a>
+						<ul>
+							<li><a href="#">LCD</a></li>
+							<li><a href="#">LED</a></li>
+						</ul>
+						</li>
+					
+					
+				</ul></li>
+			<li><a href="#">Furniture</a>
+				<ul>
+					<li><a href="#">Home Furniture</a></li>
+					<li><a href="#">Office Furniture</a></li>
+					<li><a href="#">Other</a></li>
+				</ul></li>
+			
+			<li><a href="#">Grocery</a></li>
+			<li><a href="#">Contact us</a></li>	
+			<li><a href="#">About us</a></li>
+		</ul>
+	</nav>
+
+
+
+<h1><b>WELCOME!</b></h1>
+
+
+</body>
+</html>
+
+

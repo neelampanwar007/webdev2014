@@ -1,26 +1,57 @@
 <?php
-    
-    include_once __DIR__ . '/../inc/functions.php';
+	include_once __DIR__ . '/../inc/functions.php';
 	include_once __DIR__ . '/../inc/allModels.php';
-	
-	
-	@$action = $_REQUEST['action'];
-	
-	switch ($action) {
-		case 'create':
-				break;
-		case 'update':
-				break;
+
+	@$view = $action = $_REQUEST['action'];
+	@$format = $_REQUEST['format'];
+
+
+	switch ($action){
+		case 'new':
+			$view = 'edit';
+			break;
+		case 'edit':
+			$model = Order_Items::Get($_REQUEST['id']);
+			break;
+		case 'save':
+			$sub_action = empty($_REQUEST['id']) ? 'created' : 'updated';
+			//$errors = Users::Validate($_REQUEST);
+			if(!$errors){
+				$errors = Order_Items::Save($_REQUEST);
+			}
+			if(!$errors){
+				header("Location: ?sub_action=$sub_action&id=$_REQUEST[id]");
+				die();
+			}else{
+				//print_r($errors);
+				$model = $_REQUEST;
+				$view = 'edit';
+
+			}
+			break;
 		case 'delete':
-				break;
-		
+			if($_SERVER['REQUEST_METHOD'] == 'GET'){
+				//Promt
+				$model = Order_Items::Get($_REQUEST['id']);
+			}else{
+				$errors = Order_Items::Delete($_REQUEST['id']);
+			}
+			break;
 		default:
-			print_r('controller');
-			$model = Order_item::Get();  // static dereferening operator
-			if($action == null) $action = 'index';
-			include __DIR__ . "/../Views/Users/$action.php";
-			include __DIR__ . "/../Views/Shared/_Layout.php"; 			
-			
+			$model = Order_Items::Get();
+			if($view == null) $view = 'index';
 	}
-	
-	
+
+	switch ($format) {
+		case 'json':
+			$ret = array('success' => empty($errors), 'errors'=> $errors, 'data'=> $model);
+			echo json_encode($ret);
+			break;
+		case 'plain':
+			include __DIR__ . "/../Views/Order_Items/$view.php";			
+			break;
+		default:
+			$view = __DIR__ . "/../Views/Order_Items/$view.php";	
+			include __DIR__ . "/../Views/Shared/_Layout.php";
+			break;
+	}
