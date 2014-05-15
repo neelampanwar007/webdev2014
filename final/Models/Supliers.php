@@ -30,13 +30,13 @@
 			$row2 = escape_all($row, $conn);
 			if (!empty($row['id'])) {
 				$sql = "Update 2014Spring_Supliers
-							Set Name='$row2[FirstName]'								
+							Set Name='$row2[Name]'								
 						WHERE id = $row2[id]
 						";
 			}else{
 				$sql = "INSERT INTO 2014Spring_Supliers
 						(Name)
-						VALUES ('$row2[FirstName]') ";				
+						VALUES ('$row2[Name]') ";				
 			}
 
 

@@ -48,7 +48,7 @@
 	<input type="hidden" name="id" value="<?=$model['id']?>" />
 	
 	<div class="form-group <?if(isset($errors['id'])) echo 'has-error has-feedback' ?> ">
-		<label class="control-label" for="id">Id:</label>
+		<label class="control-label" for="id">Category id:</label>
 		<input class="required form-control" type="int" name="id" id="id" value="<?=$model['id']?>" placeholder="Category id" />
 		<? if(isset($errors['id'])): ?>
 			<span class="glyphicon glyphicon-remove form-control-feedback"></span>

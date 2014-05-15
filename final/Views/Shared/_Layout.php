@@ -35,11 +35,11 @@
           <ul class="nav navbar-nav">
           	
            
-            
-             <li class="active"><a href="http://www.cs.newpaltz.edu/~panwarn1/spring2014/final/Controllers/Products.php?action=index"> Products </a></li>
+            <li class="active"><a href="http://www.cs.newpaltz.edu/~panwarn1/spring2014/final/Controllers/Users.php"> Users </a></li>
+             <li ><a href="http://www.cs.newpaltz.edu/~panwarn1/spring2014/final/Controllers/Products.php?action=index"> Products </a></li>
             <li><a href="http://www.cs.newpaltz.edu/~panwarn1/spring2014/final/Controllers/Catergory.php">Category</a></li>
             <li><a href="http://www.cs.newpaltz.edu/~panwarn1/spring2014/final/Controllers/SubCategory.php">Sub Category</a></li>
-            <li><a href="http://www.cs.newpaltz.edu/~panwarn1/spring2014/final/Controllers/Users.php"> Users </a></li>
+            
             <li><a href="http://www.cs.newpaltz.edu/~panwarn1/spring2014/final/Controllers/Addresses.php">Address</a></li>
             <li><a href="http://www.cs.newpaltz.edu/~panwarn1/spring2014/final/Controllers/Order_Items.php">Order Item</a></li>
             <li><a href="http://www.cs.newpaltz.edu/~panwarn1/spring2014/final/Controllers/Orders.php">Orders</a></li>

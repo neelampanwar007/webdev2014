@@ -6,7 +6,7 @@
 
 	class Products  {
 
-		static public function Get($id = null, $catergory_id = null, $SubCategory_id = null)
+		static public function Get($id = null, $catergory_id = null)
 		{
 			$sql = "SELECT p.name ProductName, 
 			concat('$',p.price)Price,s.name SuplierName , c.Name Category,

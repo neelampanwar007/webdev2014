@@ -39,7 +39,7 @@
 	<ul class="error">
 		<? foreach ($errors as $key => $value): ?>
 			<li><b><?=$key?>:</b> <?=$value?></li>
-		<? endforeach; ?>
+	<? endforeach; ?> 
 	</ul>
 	
 <form action="?action=save" method="post" class="my-horizontal">

@@ -26,7 +26,7 @@
 			if(!$errors)
 			{
 				$returnUrl = !empty($_SESSION['returnUrl']) ? $_SESSION['returnUrl'] : '../Home/';
-				
+				//header("Location:$returnUrl");
 				header("Location:http://www.cs.newpaltz.edu/~panwarn1/spring2014/final/Controllers/Users.php");//
 				die();
 			}

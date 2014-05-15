@@ -5,7 +5,7 @@
 
 		static public function Get($id = null)
 		{
-			$sql = "select a.addresses Addresses,a.City, a.State,a.Zip,a.Country,
+			$sql = "select a.addresses Addresses,a.City City, a.State State,a.Zip Zip,a.Country Country,
 			k.name AddressType,concat(u.FirstName,' ',u.LastName) User from 2014Spring_Addresses a
             join 2014Spring_Keywords k on a.addressType = k.id
               join 2014Spring_Users u on a.users_id = u.id

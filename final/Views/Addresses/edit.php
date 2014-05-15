@@ -32,9 +32,7 @@
 
 	      <div class="modal-header">
 	        <a href="?" class="close" data-dismiss="modal" aria-hidden="true">&times;</a>
-	        <h4 class="modal-title">Edit: <?=$model['Addresses']?> <?=$model['City']?>
-	        	<?=$model['State']?><?=$model['Zip']?><?=$model['AddressType']?><?=$model['Users_id']?>
-	        	<?=$model['Country']?>
+	        <h4 class="modal-title">Edit: <?=$model['FirstName']?> <?=$model['LastName']?>
 	        </h4>
 	      </div>
 
@@ -53,9 +51,9 @@
 	<div class="form-group <?if(isset($errors['Addresses'])) echo 'has-error has-feedback' ?> ">
 		<label class="control-label" for="Addresses">Addresses:</label>
 		<input class="required form-control" type="text" name="Addresses" id="Addresses" value="<?=$model['Addresses']?>" placeholder="Addresses" />
-		<? if(isset($errors['FirstName'])): ?>
+		<? if(isset($errors['Addresses'])): ?>
 			<span class="glyphicon glyphicon-remove form-control-feedback"></span>
-			<span ><?=$errors['FirstName']?></span>
+			<span ><?=$errors['Addresses']?></span>
 		<? endif ?>
 	</div>
 	
