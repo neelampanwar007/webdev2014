@@ -36,9 +36,9 @@ join 2014Spring_Catergory c on sc.Catergory_id = c.id
 
 			$row2 = escape_all($row, $conn);
 			if (!empty($row['id'])) {
-				$sql = "Update 2014Spring_SubCategory
-							Set id='$row2[id]', name='$row2[name]',
-								Caterrgory_id='$row2[Catergory_id]'
+				$sql = "Update 2014Spring_SubCategory sc Join on 
+							Set id='$row2[id]', name='$row2[SubCategoryName]',
+								Caterrgory_id='$row2[CategoryName]'
 						WHERE id = $row2[id]
 						";
 			}else{

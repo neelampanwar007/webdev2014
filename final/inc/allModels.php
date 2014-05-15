@@ -5,7 +5,7 @@
 	include_once __DIR__ . '/../Models/Accounts.php';
 	include_once __DIR__ . '/../Models/SubCategory.php';
 	include_once __DIR__ . '/../Models/Catergory.php';
-	include_once __DIR__ . '/../Models/Contact_methods.php';
+	include_once __DIR__ . '/../Models/ContactMethods.php';
 	include_once __DIR__ . '/../Models/Addresses.php';
 	include_once __DIR__ . '/../Models/Orders.php';
 	include_once __DIR__ . '/../Models/Order_Items.php';
