@@ -4,12 +4,14 @@
 
 	@$view = $action = $_REQUEST['action'];
 	@$format = $_REQUEST['format'];
+	@$id = $_REQUEST['id'];
+	$errors=array();
 
 	//Accounts::RequireLogin();
 	switch ($action){
 		case 'new':
 			$view = 'edit';
-			break;
+            $model= Catergory::Blank();
 		case 'edit':
 			$model = Catergory::Get($_REQUEST['id']);
 			break;

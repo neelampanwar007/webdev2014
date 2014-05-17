@@ -6,7 +6,7 @@
 	 static public function Get($id = null)
 		{
 				
-			$sql = "SELECT sc.id, sc.name SubCategoryName,c.name CategoryName FROM panwarn1_db.2014Spring_SubCategory sc
+			$sql = "SELECT sc.id, sc.name SubCategoryName ,c.name CategoryName FROM panwarn1_db.2014Spring_SubCategory sc
 join 2014Spring_Catergory c on sc.Catergory_id = c.id
 				   ";
 			
@@ -37,14 +37,14 @@ join 2014Spring_Catergory c on sc.Catergory_id = c.id
 			$row2 = escape_all($row, $conn);
 			if (!empty($row['id'])) {
 				$sql = "Update 2014Spring_SubCategory sc Join on 
-							Set id='$row2[id]', name='$row2[SubCategoryName]',
-								Caterrgory_id='$row2[CategoryName]'
+							Set id='$row2[id]',
+								Catergory_id='$row2[Catergory_id]'
 						WHERE id = $row2[id]
 						";
 			}else{
 				$sql = "INSERT INTO 2014Spring_SubCategory
 						(id,name,Catergory_id)
-						VALUES ('$row2[id]', '$row2[name]', '$row2[Catergory_id]' ) ";				
+						VALUES ('$row2[id]', '$row2[Catergory_id]' ) ";				
 			}
 
 
@@ -63,7 +63,7 @@ join 2014Spring_Catergory c on sc.Catergory_id = c.id
 
 		static public function Blank()
 		{
-			return array( 'id' => null);
+			return array( 'id' => null,'SubCategoryName'=>null,'CategoryName'=>null);
 		}
 
 		static public function Delete($id)

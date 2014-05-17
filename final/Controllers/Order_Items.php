@@ -4,11 +4,13 @@
 
 	@$view = $action = $_REQUEST['action'];
 	@$format = $_REQUEST['format'];
+	$errors=array();
 
 
 	switch ($action){
 		case 'new':
 			$view = 'edit';
+			$model= Order_Items::Blank();
 			break;
 		case 'edit':
 			$model = Order_Items::Get($_REQUEST['id']);

@@ -74,8 +74,8 @@
 	</div>
 	
 	<div class="form-group">
-		<label class="control-label" for="Picture_url">Picture Url:</label>
-		<input class="form-control" type="url" name="Picture_url" id="Picture_url" value="<?=$model['Picture_url']?>" placeholder="Picture url" />
+		<label class="control-label" for="Picture_Url">Picture Url:</label>
+		<input class="form-control" type="text" name="Picture_Url" id="Picture_Url" value="<?=$model['Picture']?>" placeholder="Picture url" />
 	</div>
 
     <div class="form-group <?if(isset($errors['Catergory_id'])) echo 'has-error has-feedback' ?> ">

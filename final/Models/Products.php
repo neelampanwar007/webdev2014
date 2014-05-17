@@ -8,13 +8,14 @@
 
 		static public function Get($id = null, $catergory_id = null)
 		{
-			$sql = "SELECT p.name ProductName, 
+			$sql = "SELECT p.id ,p.name ProductName, 
 			concat('$',p.price)Price,s.name SuplierName , c.Name Category,
-			sc.name SubCategory,p.picture_url Picture FROM 2014Spring_Products p
+			sc.name SubCategory,p.Picture_url Picture,p.Description FROM 2014Spring_Products p
        			   join 2014Spring_Supliers s on p.Suplier_id = s.id
 				join 2014Spring_Catergory c on p.Catergory_id=c.id
 				join 2014Spring_SubCategory sc on p.SubCategory_id=sc.id
 								   ";
+								   // decarlare an id for insex
 								   //$sql="SELECT * from 2014Spring_Products sp";//if the above sql doent work then use this statement and comment the above one.
 				   
            if($id){
@@ -55,6 +56,7 @@
 		static public function GetSubcategories()
 
 		{
+			
 				
 			$sql =  "SELECT * FROM 2014Spring_SubCategory  "
 				;
@@ -64,14 +66,37 @@
 
 		static public function Save(&$row)
 		{
-			throw new Exception("Not Implemented", 1);
+			$conn = GetConnection();
+
+			$row2 = escape_all($row, $conn);
+			if (!empty($row['id'])) {
+				$sql = "UPDATE 2014Spring_Products
+							SET Name='$row2[Name]', Price='$row2[Price]',
+								Description='$row2[Description]', Picture_Url='$row2[Picture_Url]'
+						WHERE id = $row2[id]
+						";
+			}else{
+				$sql = "INSERT INTO 2014Spring_Products
+						(Name,Price,Description,Picture_url)
+						VALUES ('$row2[Name]', '$row2[Price]', '$row2[Description]', '$row2[Picture_url]' ) ";		
+
+			}
+			$results = $conn->query($sql);
+			$error = $conn->error;
+
+			if(!$error && empty($row['id'])){
+				$row['id'] = $conn->insert_id;
+			}
+
+			$conn->close();
 
 			return $error ? array ('sql error' => $error) : false;
 		}
 
 		static public function Blank()
 		{
-			return array( 'id' => null);
+			return array( 'id' => null,'ProductName'=>null,'Price'=>null,'SupplierName'=>null,'Category'=>null,
+			'SubCategory'=>null,'Picture'=>null,'Description'=>null);
 		}
 
 		static public function Delete($id)

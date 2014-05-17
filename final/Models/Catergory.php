@@ -1,11 +1,12 @@
 <?php
 	include_once __DIR__ . '/../inc/functions.php';
+	$error=null;
 
 	class Catergory  {
 
 		static public function Get($id = null)
 		{
-			$sql = "SELECT * FROM 2014Spring_Catergory sc"
+			$sql = "SELECT sc.id as id,sc.name as name FROM 2014Spring_Catergory sc"
 			;
 					
 			if($id == null){
@@ -56,7 +57,7 @@
 
 		static public function Blank()
 		{
-			return array( 'id' => null);
+			return array( 'id'=>null, 'name'=>null);
 		}
 
 		static public function Delete($id)

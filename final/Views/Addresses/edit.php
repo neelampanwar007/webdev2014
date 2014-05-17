@@ -32,7 +32,7 @@
 
 	      <div class="modal-header">
 	        <a href="?" class="close" data-dismiss="modal" aria-hidden="true">&times;</a>
-	        <h4 class="modal-title">Edit: <?=$model['FirstName']?> <?=$model['LastName']?>
+	        <h4 class="modal-title">Edit: <?=$model['User']?>
 	        </h4>
 	      </div>
 
@@ -111,7 +111,7 @@
 	
 	<div class="form-group">
 		<label class="control-label" for="Country">Country:</label>
-		<input class="form-control" type="text" name="Country" id="Country" value="<?=$model['Country']?>" placeholder="fbid" />
+		<input class="form-control" type="text" name="Country" id="Country" value="<?=$model['Country']?>" placeholder="Country" />
 	</div>
 
 	

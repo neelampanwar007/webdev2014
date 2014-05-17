@@ -5,8 +5,9 @@
 
 		static public function Get($id = null)
 		{
-			$sql = "select o.id,u.FirstName,u.LastName, concat(a.Addresses,',',a.City,' ',a.State,'-',a.Zip) Address,p.Name ProductName,concat('$ ',p.Price) Price
-from 2014Spring_Orders o
+			$sql = "select o.id,u.FirstName,u.LastName, concat(a.Addresses,',',a.City,' ',a.State,'-',a.Zip) Address,
+			p.Name ProductName,concat('$ ',p.Price) Price
+           from 2014Spring_Orders o
 	join 2014Spring_Users u on o.User_id = u.id
 	join 2014Spring_Addresses a on o.Address_id = a.id
 	join 2014Spring_Order_Items oi on o.id = oi.Order_id
@@ -59,7 +60,7 @@ from 2014Spring_Orders o
 
 		static public function Blank()
 		{
-			return array( 'id' => null);
+			return array( 'id' => null,'FirstName'=>null,'LastName'=>null,'Address'=>null,'ProductName'=>null,'Price'=>null);
 		}
 
 		static public function Delete($id)

@@ -42,30 +42,34 @@
 	
 	
 	<input type="hidden" name="id" value="<?=$model['id']?>" />
+	<div class="modal-header">
+	        <a href="?" class="close" data-dismiss="modal" aria-hidden="true">&times;</a>
+	        <h4 class="modal-title">Edit: <?=$model['ProductName']?> </h4>
+	      </div>
 	
-	<div class="form-group <?if(isset($errors['Order_id'])) echo 'has-error has-feedback' ?> ">
-		<label class="control-label" for="Order_id">Order id:</label>
-		<input class="required form-control" type="text" name="Order_id" id="Order_id" value="<?=$model['Order_id']?>" placeholder="Order id" />
-		<? if(isset($errors['Order_id'])): ?>
+	<div class="form-group <?if(isset($errors['id'])) echo 'has-error has-feedback' ?> ">
+		<label class="control-label" for="id">Order id:</label>
+		<input class="required form-control" type="text" name="id" id="id" value="<?=$model['id']?>" placeholder="Order id" />
+		<? if(isset($errors['id'])): ?>
 			<span class="glyphicon glyphicon-remove form-control-feedback"></span>
-			<span ><?=$errors['Order_id``']?></span>
+			<span ><?=$errors['id']?></span>
 		<? endif ?>
 	</div>
 	
-	<div class="form-group <?if(isset($errors['Product_id'])) echo 'has-error has-feedback' ?> ">
-		<label class="control-label" for="Product_id">Product Name:</label>
-		<input class="required form-control" type="int" name="Product_id" id="Product_id" value="<?=$model['Product_id']?>" placeholder="Last Name" />
-		<? if(isset($errors['Product_id'])): ?>
+	<div class="form-group <?if(isset($errors['ProductName'])) echo 'has-error has-feedback' ?> ">
+		<label class="control-label" for="ProductName">Product Name:</label>
+		<input class="required form-control" type="text" name="ProductName" id="ProductName" value="<?=$model['ProductName']?>" placeholder="ProductName" />
+		<? if(isset($errors['ProductName'])): ?>
 			<span class="glyphicon glyphicon-remove form-control-feedback"></span>
-			<span ><?=$errors['Product_id']?></span>
+			<span ><?=$errors['ProductName']?></span>
 		<? endif ?>
 	</div>
 	
 	
 
-	<div class="form-group <?if(isset($errors['Product_id'])) echo 'has-error has-feedback' ?> ">
-		<label class="control-label" for="Product_id">Product id:</label>
-		<input class="required form-control" type="int" name="Product_id" id="Product_id" value="<?=$model['Product_id']?>" placeholder="Last Name" />
+	<div class="form-group <?if(isset($errors['pid'])) echo 'has-error has-feedback' ?> ">
+		<label class="control-label" for="pid">Product id:</label>
+		<input class="required form-control" type="int" name="Product_id" id="Product_id" value="<?=$model['pid']?>" placeholder="Product id" />
 		
 		<!--<select size="1" class="required form-control" name="UserType" id="UserType">
 			<option value="">--Product Type--</option>

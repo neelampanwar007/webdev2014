@@ -4,11 +4,13 @@
 
 	@$view = $action = $_REQUEST['action'];
 	@$format = $_REQUEST['format'];
+	$errors=array();
 
 	//Accounts::RequireLogin();
 	switch ($action){
 		case 'new':
 			$view = 'edit';
+			$model=Addresses::Blank();
 			break;
 		case 'edit':
 			$model = Addresses::Get($_REQUEST['id']);

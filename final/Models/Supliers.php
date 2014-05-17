@@ -5,7 +5,7 @@
 
 		static public function Get($id = null)
 		{
-			$sql = "SELECT Name
+			$sql = "SELECT id, Name
 					FROM 2014Spring_Supliers 
 				   ";
 			if($id == null){
@@ -55,7 +55,7 @@
 
 		static public function Blank()
 		{
-			return array( 'id' => null);
+			return array( 'id' => null,'Name'=>null);
 		}
 
 		static public function Delete($id)

@@ -8,13 +8,16 @@
 	@$category_id      = $_REQUEST['catergory_id'];
 	@$SubCategory_id  = $_REQUEST['SubCategory_id'];
 	$layout            = '_Layout';
-	$errors = null;
+	//$errors = null;
+	$errors=array();
 
     error_reporting (E_ALL);
 	
 	switch ($action){
 		case 'new':
 			$view = 'edit';
+			
+			$model =Products::Blank();
 			break;
 		case 'edit':
 			$model = Products::Get($_REQUEST['id']);

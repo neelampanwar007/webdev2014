@@ -49,7 +49,7 @@
 	
 	<div class="form-group <?if(isset($errors['id'])) echo 'has-error has-feedback' ?> ">
 		<label class="control-label" for="id">Category id:</label>
-		<input class="required form-control" type="int" name="id" id="id" value="<?=$model['id']?>" placeholder="Category id" />
+		<input class="required form-control" type="text" name="id" id="id" value="<?=$model['id']?>" placeholder="Category id" />
 		<? if(isset($errors['id'])): ?>
 			<span class="glyphicon glyphicon-remove form-control-feedback"></span>
 			<span ><?=$errors['id']?></span>
@@ -57,7 +57,7 @@
 	</div>
 	
 	<div class="form-group <?if(isset($errors['name'])) echo 'has-error has-feedback' ?> ">
-		<label class="control-label" for="name">name:</label>
+		<label class="control-label" for="name">Category Name:</label>
 		<input class="required form-control" type="text" name="name" id="name" value="<?=$model['name']?>" placeholder="Category Name" />
 		<? if(isset($errors['name'])): ?>
 			<span class="glyphicon glyphicon-remove form-control-feedback"></span>

@@ -32,7 +32,7 @@
 
 	      <div class="modal-header">
 	        <a href="?" class="close" data-dismiss="modal" aria-hidden="true">&times;</a>
-	        <h4 class="modal-title">Edit: <?=$model['name']?></h4>
+	        <h4 class="modal-title">Edit: <?=$model['SubCategoryName']?></h4>
 	      </div>
 
 
@@ -53,12 +53,12 @@
 		<input class="form-control" type="int" name="id" id="id" value="<?=$model['id']?>" placeholder="Sub Category id" />
 	</div>
 	
-	<div class="form-group <?if(isset($errors['name'])) echo 'has-error has-feedback' ?> ">
-		<label class="control-label" for="name">Sub Category Name:</label>
-		<input class="required form-control" type="text" name="name" id="name" value="<?=$model['name']?>" placeholder="Sub Category Name" />
-		<? if(isset($errors['name'])): ?>
+	<div class="form-group <?if(isset($errors['SubCategoryName '])) echo 'has-error has-feedback' ?> ">
+		<label class="control-label" for="SubCategoryName ">Sub Category Name:</label>
+		<input class="required form-control" type="text" name="SubCategoryName " id="SubCategoryName " value="<?=$model['SubCategoryName']?>" placeholder="Sub Category Name" />
+		<? if(isset($errors['SubCategoryName '])): ?>
 			<span class="glyphicon glyphicon-remove form-control-feedback"></span>
-			<span ><?=$errors['name']?></span>
+			<span ><?=$errors['SubCategoryName ']?></span>
 		<? endif ?>
 	</div>
 	

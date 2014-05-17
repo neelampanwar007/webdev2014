@@ -5,7 +5,7 @@
 
 		static public function Get($id = null)
 		{
-			$sql = "SELECT oi.id, oi.created_at CreateTime, oi.updated_at UpdateTime,p.Name ProductName
+			$sql = "SELECT p.id as pid ,oi.id, oi.created_at CreateTime, oi.updated_at UpdateTime,p.Name ProductName
 FROM panwarn1_db.2014Spring_Order_Items oi
 join 2014Spring_Orders o on oi.Order_id = o.id 
 	join 2014Spring_Products p on oi.Product_id = p.id
@@ -57,7 +57,7 @@ join 2014Spring_Orders o on oi.Order_id = o.id
 
 		static public function Blank()
 		{
-			return array( 'id' => null);
+			return array( 'id' => null,'CreateTime'=>null,'UpdateTime'=>null,'ProductName'=>null,'pid'=>null);
 		}
 
 		static public function Delete($id)

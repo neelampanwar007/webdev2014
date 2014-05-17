@@ -58,7 +58,7 @@
 
 		static public function Blank()
 		{
-			return array( 'id' => null);
+			return array( 'id' => null, 'FirstName'=>null,'LastName'=>null,'Password'=>null,'fbid'=>null,'UserType'=>null);
 		}
 
 		static public function Delete($id)

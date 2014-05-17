@@ -4,11 +4,14 @@
 
 	@$view = $action = $_REQUEST['action'];
 	@$format = $_REQUEST['format'];
-
+    $errors=array();// decare this as an arrqay so that it can loop throough foreach
+    
+    
 	Accounts::RequireLogin();
 	switch ($action){
 		case 'new':
 			$view = 'edit';
+			$model= Users::Blank();
 			break;
 		case 'edit':
 			$model = Users::Get($_REQUEST['id']);
@@ -48,6 +51,7 @@
 			echo json_encode($ret);
 			break;
 		case 'plain':
+			//print_r($model);
 			include __DIR__ . "/../Views/Users/$view.php";			
 			break;
 		default:

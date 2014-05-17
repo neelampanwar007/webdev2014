@@ -4,11 +4,13 @@
 
 	@$view = $action = $_REQUEST['action'];
 	@$format = $_REQUEST['format'];
+	$errors=array();
 
 	//Accounts::RequireLogin();
 	switch ($action){
 		case 'new':
 			$view = 'edit';
+			$model= SubCategory::Blank();
 			break;
 		case 'edit':
 			$model = SubCategory::Get($_REQUEST['id']);

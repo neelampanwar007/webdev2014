@@ -1,7 +1,7 @@
 <?php
 
-$link = mysql_connect('localhost', 'plotkinm', 'FaceBook','plotkinm_db');
-if (!$link) {
+$conn = mysql_connect('localhost', 'panwarn1', 'Facebook','panwarn1_db');
+if (!$conn) {
    die('Could not connect: ' . mysql_error());
 }
 if (!mysql_select_db("search_box")) {
@@ -9,8 +9,15 @@ if (!mysql_select_db("search_box")) {
    exit;
 }
 $sql="SELECT * FROM US_State_Zip";
-print_r($sql);
 $result = mysql_query("SELECT * FROM  US_State_Zip");
+
+if(($results = mysql_query($sql)) && count($results) > 0)
+{
+  return $results[10];
+}
+
+print_r($sql);
+
 while ($row = mysql_fetch_assoc($result)) 
 {
         //$zip[]=$row['ZIP'];
@@ -25,11 +32,11 @@ if(isset($_GET['part']) and $_GET['part'] != '')
     $results = array();
 
     // search colors
-    foreach($colors as $color)
+    foreach($Zips as $Zip)
     {
         // if it starts with 'part' add to results
-        if( strpos($color, $_GET['part']) === 0 ){
-            $results[] = $color;
+        if( strpos($Zip, $_GET['part']) === 0 ){
+            $results[] = $Zip;
         }
     }
 

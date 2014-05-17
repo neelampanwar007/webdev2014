@@ -76,8 +76,8 @@
 	</div>
     
     <div class="form-group">
-		<label class="control-label" for="price">Price:</label>
-		<input class="form-control" type="int" name="price" id="price" value="<?=$model['price']?>" placeholder="price" />
+		<label class="control-label" for="Price">Price:</label>
+		<input class="form-control" type="int" name="Price" id="Price" value="<?=$model['Price']?>" placeholder="price" />
 	</div>
     
 
